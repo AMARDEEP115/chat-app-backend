@@ -63,7 +63,7 @@ io.on("connection",(socket)=>{
     });
 });
 
-httpServer.listen(process.env.port,async()=>{
+httpServer.listen(process.env.port || 8080,async()=>{
     try{
         await connection;
         console.log("Connected to DB");
@@ -71,5 +71,5 @@ httpServer.listen(process.env.port,async()=>{
         console.log(err);
         console.log("Not-Connected to DB");
     }
-    console.log(`server is running at port ${process.env.port}`);
+    console.log(`server is running at port ${process.env.port || 8080}`);
 });
